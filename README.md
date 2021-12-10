@@ -1,6 +1,6 @@
 # Synopsis
 
-Test code illustrating various troubleshooting and workarounds with https://github.com/racket/web-server
+Test code illustrating various troubleshooting and workarounds for https://github.com/racket/web-server
 
 # Prerequisites
 
@@ -24,7 +24,7 @@ The code was tested with the following software versions:
 | serve7.rkt | Can the enable-break API somehow resurrect the ability to catch the dropped connection event? |
 | serve8.rkt | The response logging mechanism of serve6b.rkt, ala carte. |
 
-Each example shows a way of exercising the example using curl and timeout.
+Each example shows in a comment at its end a way of exercising the example using curl and timeout.
 
 A few other incomplete examples are provided in the directory incomplete/
 
