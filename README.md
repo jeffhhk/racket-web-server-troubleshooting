@@ -12,6 +12,22 @@ The code was tested with the following software versions:
 
 # Inventory
 
+The programs in from-tcp/ demonstrate handling dropped (half-closed or half-open) TCP connections in racket.  Limitations of racket's web-server requires these to be built from TCP.
+
+| Name | Description |
+|---|---|
+| [evtserve1.rkt](from-tcp/evtserve1.rkt) |  |
+| [evtserve1-handle-half-closed.rkt](from-tcp/evtserve1-handle-half-closed.rkt) | Demonstrate handling tcp half-closed connections. |
+| [evtserve1-handle-half-closed-half-open.sh](from-tcp/evtserve1-handle-half-closed-half-open.sh) | Demonstrate handling half-closed and half-open connections (Linux only) |
+| [evtserve1-handle-half-closed-half-open.rkt](from-tcp/evtserve1-handle-half-closed-half-open.rkt) | (driven by evtserve1-handle-half-closed-half-open.sh) |
+
+Handling half-open TCP connections is implemented with the help of LD_PRELOAD and libkeepalive.  On Ubuntu, install libkeepalive with:
+
+    sudo apt-get install libkeepalive0
+
+
+The following examples were created in the process of troubleshooting racket web-server to rule out the possibility of using it for our application.  They demonstrate various behaviors, some sparsely documented elsewhere.
+
 | Name | Description |
 |---|---|
 | serve1a.rkt | Show how server responds to a dropped TCP connection when serving a long response. |
