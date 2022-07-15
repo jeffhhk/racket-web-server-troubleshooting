@@ -26,7 +26,7 @@ Handling half-open TCP connections is implemented with the help of LD_PRELOAD an
     sudo apt-get install libkeepalive0
 
 
-The following examples were created in the process of troubleshooting racket web-server to rule out the possibility of using it for our application.  They demonstrate various behaviors, some sparsely documented elsewhere.
+The following examples in racket-web-server/ were created in the process of troubleshooting to rule out the possibility of using racket-web-server for our application.  They demonstrate various behaviors, some sparsely documented elsewhere.
 
 | Name | Description |
 |---|---|

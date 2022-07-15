@@ -7,7 +7,7 @@
 (define (handle-by-event in out k)
   ; Discard the HTTP request header (up to blank line):
   (regexp-match #rx"(\r\n|^)\r\n" in)
-  (displayln "about to sleep")
+  (displayln "request received")
   (flush-output (current-output-port))
   ;; Detect half-closed TCP connections with eof-evt on the input port
   (with-handlers
@@ -43,7 +43,7 @@
 (define (accept-and-handle listener)
   (define-values (in out) (tcp-accept listener))
   (handle-by-event in out (lambda ()
-    (displayln "handle finished")
+    (displayln "request processing completed")
   ))
   (close-input-port in)
   (close-output-port out))
@@ -67,9 +67,9 @@
     Test with curl and GNU coreutils timeout:
         timeout --foreground 3s curl http://127.0.0.1:8000
     output:
-        about to sleep
+        request received
         got evt
-        handle finished
+        request processing completed
     
     Tested on:
         Racket v8.0 cs
